@@ -13,7 +13,16 @@ services:
             - "@templating.locator"
             - "@templating.name_parser"
             - "%kernel.root_dir%"
-            - "@request_stack"
+            - "@app.context.site"
         tags:
             - { name: twig.loader, priority: 100 }
 
+    # Factory
+    app.factory.site:
+        class: AppBundle\Factory\SiteFactory
+        arguments: ["@request_stack"]
+
+    # Context
+    app.context.site:
+        class: AppBundle\AbstractSite
+        factory: ["@app.factory.site", get]
