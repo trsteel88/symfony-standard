@@ -7,3 +7,13 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app_twig_loader:
+        class: AppBundle\Templating\Loader
+        arguments:
+            - "@templating.locator"
+            - "@templating.name_parser"
+            - "%kernel.root_dir%"
+            - "@request_stack"
+        tags:
+            - { name: twig.loader, priority: 100 }
+
