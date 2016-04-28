@@ -68,6 +68,8 @@ class DefaultController extends Controller
             $category->removeProduct($product);
         }
 
+        //throw new \Exception('Uncomment me to see the delete CMD');
+
         return $this->redirectToRoute('test_check', array(
             'id' => $product->getId(),
         ));
