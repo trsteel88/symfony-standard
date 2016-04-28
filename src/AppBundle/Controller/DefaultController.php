@@ -74,7 +74,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/test/run/{id}/check", name="test_check")
+     * @Route("/test/check/{id}/check", name="test_check")
      */
     public function checkAction($id)
     {
